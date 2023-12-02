@@ -15,7 +15,7 @@ public class tSolucion {
     String Solucion;
 	@Nullable
     String Uso;
-    @OneToMany
+    @OneToMany 
     List<tMuestra> Muestras;
     
     public tSolucion() {
