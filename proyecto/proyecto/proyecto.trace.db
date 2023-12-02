@@ -197,3 +197,7 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/GI/proyecto/p
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 60 more
+2023-12-02 13:33:46.885976+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "T_SOLUCION_MUESTRA" no encontrada
+Table "T_SOLUCION_MUESTRA" not found; SQL statement:
+Drop table T_SOLUCION_MUESTRA [42102-224]
