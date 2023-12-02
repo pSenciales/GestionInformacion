@@ -15,7 +15,7 @@ public class tUsuario {
 	public tUsuario() {
 		
 	}
-
+	
 	public String getNif() {
 		return nif;
 	}

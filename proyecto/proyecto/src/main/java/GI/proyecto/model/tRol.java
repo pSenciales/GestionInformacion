@@ -10,7 +10,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class tRol {
 	@Id
-	String rolName;
+	Roles rolName;
 	@Nullable
 	String rolDes;
 	boolean admin;
@@ -32,11 +32,11 @@ public class tRol {
 		
 	}
 	
-	public String getRolName() {
+	public Roles getRolName() {
 		return rolName;
 	}
 		
-	public void setRolName(String rolName) {
+	public void setRolName(Roles rolName) {
 		this.rolName = rolName;
 	}
 	public String getRolDes() {

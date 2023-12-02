@@ -18,6 +18,22 @@ public class tPermiso {
     public tPermiso(){
 
     }
+    
+    public tPermiso(tRol rolName) {
+    	this.rolName = rolName;
+    	String rol = rolName.getRolName().name();
+    	this.acceso = true;
+    	this.insertar = false;
+		this.modificar = false;
+		this.borrar = false;
+    	if(rol != "Invitado") {
+    		this.modificar = true;
+    		if(rol == "Administrador") {
+    			this.insertar = true;
+    			this.borrar = true;
+    		}
+    	}
+    }
 
     public String getPantalla() {
         return pantalla;
