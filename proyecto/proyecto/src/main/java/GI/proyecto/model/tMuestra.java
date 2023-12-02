@@ -2,6 +2,7 @@ package GI.proyecto.model;
 
 import java.util.Objects;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -10,7 +11,9 @@ import jakarta.persistence.ManyToOne;
 public class tMuestra {
 	@Id
 	int ID;
+	@Nullable
 	String NIF_PACIENTE;
+	@Nullable
 	String Cultivo;
 	@ManyToOne
 	tSolucion Solucion;

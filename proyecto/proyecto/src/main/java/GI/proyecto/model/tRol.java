@@ -2,6 +2,7 @@ package GI.proyecto.model;
 
 import java.util.List;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -10,6 +11,7 @@ import jakarta.persistence.OneToMany;
 public class tRol {
 	@Id
 	String rolName;
+	@Nullable
 	String rolDes;
 	boolean admin;
 	@OneToMany

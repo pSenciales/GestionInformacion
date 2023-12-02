@@ -1,4 +1,5 @@
 package GI.proyecto.model;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -10,7 +11,9 @@ import java.util.Objects;
 public class tSolucion {
     @Id
     int id;
+	@Nullable
     String Solucion;
+	@Nullable
     String Uso;
     @OneToMany
     List<tMuestra> Muestras;
