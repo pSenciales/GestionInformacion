@@ -3,15 +3,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class tSolucion {
     @Id
-    @OneToMany
     int id;
     String Solucion;
     String Uso;
+    @OneToMany
+    List<tMuestra> Muestras;
+    
     public tSolucion() {
     }
 
