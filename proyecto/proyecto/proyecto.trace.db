@@ -867,3 +867,26 @@ INSERT INTO T_ROL VALUES('pat', 'pat', TRUE) [22018-224]
 org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'pat' (T_ROL: ""ADMIN"" BOOLEAN NOT NULL)"
 Data conversion error converting "'pat' (T_ROL: ""ADMIN"" BOOLEAN NOT NULL)"; SQL statement:
 INSERT INTO T_ROL VALUES('pat', 'pat', TRUE) [22018-224]
+2023-12-02 14:02:49.061871+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO T_USUARIO VALUES('11111111A', 'pat', 'pat')\000d\000a[*]INSERT INTO T_USUARIO VALUES('00000000X', 'admin', 'admin')\000d\000aINSERT INTO T_ROL VALUES(0, null, 'pat')\000d\000aINSERT INTO T_ROL VALUES(1, null, 'admin')\000d\000aINSERT INTO T_MUESTRA VALUES(3,17,'citologia', '11111111A')\000d\000aSELECT * FROM T_SOLUCION\000d\000aINSERT INTO T_SOLUCION VALUES(17,'Tinción de Papanicolaou', null)"
+Syntax error in SQL statement "INSERT INTO T_USUARIO VALUES('11111111A', 'pat', 'pat')\000d\000a[*]INSERT INTO T_USUARIO VALUES('00000000X', 'admin', 'admin')\000d\000aINSERT INTO T_ROL VALUES(0, null, 'pat')\000d\000aINSERT INTO T_ROL VALUES(1, null, 'admin')\000d\000aINSERT INTO T_MUESTRA VALUES(3,17,'citologia', '11111111A')\000d\000aSELECT * FROM T_SOLUCION\000d\000aINSERT INTO T_SOLUCION VALUES(17,'Tinción de Papanicolaou', null)"; SQL statement:
+INSERT INTO T_USUARIO VALUES('11111111A', 'pat', 'pat')
+INSERT INTO T_USUARIO VALUES('00000000X', 'admin', 'admin')
+INSERT INTO T_ROL VALUES(0, null, 'pat')
+INSERT INTO T_ROL VALUES(1, null, 'admin')
+INSERT INTO T_MUESTRA VALUES(3,17,'citologia', '11111111A')
+SELECT * FROM T_SOLUCION
+INSERT INTO T_SOLUCION VALUES(17,'Tinción de Papanicolaou', null) [42000-224]
+2023-12-02 14:03:45.325321+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO T_SOLUCION VALUES(17,'Tinción de Papanicolaou', null)\000d\000a[*]INSERT INTO T_MUESTRA VALUES(3,17,'citologia', '11111111A')\000d\000aINSERT INTO T_ROL VALUES(1, null, 'admin')\000d\000aINSERT INTO T_ROL VALUES(0, null, 'pat')\000d\000aINSERT INTO T_USUARIO VALUES('00000000X', 'admin', 'admin')\000d\000aINSERT INTO T_USUARIO VALUES('22222222B', 'pat', 'pat')"
+Syntax error in SQL statement "INSERT INTO T_SOLUCION VALUES(17,'Tinción de Papanicolaou', null)\000d\000a[*]INSERT INTO T_MUESTRA VALUES(3,17,'citologia', '11111111A')\000d\000aINSERT INTO T_ROL VALUES(1, null, 'admin')\000d\000aINSERT INTO T_ROL VALUES(0, null, 'pat')\000d\000aINSERT INTO T_USUARIO VALUES('00000000X', 'admin', 'admin')\000d\000aINSERT INTO T_USUARIO VALUES('22222222B', 'pat', 'pat')"; SQL statement:
+INSERT INTO T_SOLUCION VALUES(17,'Tinción de Papanicolaou', null)
+INSERT INTO T_MUESTRA VALUES(3,17,'citologia', '11111111A')
+INSERT INTO T_ROL VALUES(1, null, 'admin')
+INSERT INTO T_ROL VALUES(0, null, 'pat')
+INSERT INTO T_USUARIO VALUES('00000000X', 'admin', 'admin')
+INSERT INTO T_USUARIO VALUES('22222222B', 'pat', 'pat') [42000-224]
+2023-12-02 14:04:04.652492+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'11111111A' (T_MUESTRA: ""SOLUCION_ID"" INTEGER)"
+Data conversion error converting "'11111111A' (T_MUESTRA: ""SOLUCION_ID"" INTEGER)"; SQL statement:
+INSERT INTO T_MUESTRA VALUES(3,17,'citologia', '11111111A') [22018-224]
