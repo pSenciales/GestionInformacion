@@ -10,7 +10,7 @@ public class tUsuario {
 	@Id
 	String nif;
 	String password;
-	@ManyToOne
+	@ManyToOne 
 	tRol rolName;
 	public tUsuario() {
 		

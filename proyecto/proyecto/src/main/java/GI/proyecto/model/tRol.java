@@ -14,8 +14,10 @@ public class tRol {
 	@Nullable
 	String rolDes;
 	boolean admin;
-	@OneToMany
+	@OneToMany (mappedBy = "nif")
 	List<tUsuario> usuario;
+	@OneToMany (mappedBy ="pantalla")
+	List<tPermiso> permiso;
 	
 	
 	public List<tUsuario> getUsuario() {
