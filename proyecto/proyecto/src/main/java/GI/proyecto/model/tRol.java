@@ -1,7 +1,10 @@
 package GI.proyecto.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class tRol {
@@ -9,7 +12,18 @@ public class tRol {
 	String rolName;
 	String rolDes;
 	boolean admin;
+	@OneToMany
+	List<tUsuario> usuario;
 	
+	
+	public List<tUsuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(List<tUsuario> usuario) {
+		this.usuario = usuario;
+	}
+
 	public tRol() {
 		
 	}
@@ -17,10 +31,7 @@ public class tRol {
 	public String getRolName() {
 		return rolName;
 	}
-	
-	
-	
-	
+		
 	public void setRolName(String rolName) {
 		this.rolName = rolName;
 	}
