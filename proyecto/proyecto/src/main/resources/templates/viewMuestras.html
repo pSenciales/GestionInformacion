@@ -40,9 +40,38 @@
         <option value="Filtrar para Loeffler">Filtrar para Loeffler</option>
     </select>
 
+    
     <button type="submit">Actualizar</button>
     <button type="button">Salir</button>
+    
 </form> -->
+
+<!-- CAMPOS DE TEXTO -->
+<form action="/guardar-muestra" method="post" th:object="${nuevaMuestra}">
+   
+   
+    <!-- Campo para ID del Paciente -->
+    <label>ID	 <input type="text" th:field="*{ID}" /></label><br/>
+    
+    <!-- Campo para NIF del Paciente -->
+    <label>NIF	<input type="text" th:field="*{NIF_Paciente}" /></label><br/>
+    
+    <!-- Campo para el Cultivo -->
+    <label>Cultivo	<input type="text" th:field="*{Cultivo}" /></label><br/>
+    
+    <!-- Campo para la Solución -->
+    <label>Solucion: 
+        <select th:field="*{solucion.IDSolucion}">
+            <option th:each="solucion : ${soluciones}" th:value="${solucion.IDSolucion}" th:text="${solucion.Solucion}"></option>
+        </select>
+    </label><br/>
+    
+    <button type="submit">Insertar</button>
+    <button type="submit">Borrar</button>
+    <button type="submit">Actualizar</button>
+    <button type="submit">Salir</button>
+    
+</form>
 
 <!-- Add your JavaScript (if needed) for interactions -->
 </body>

@@ -15,6 +15,11 @@ public class tMuestraService{
         public List<tMuestra> getAll(){
             return muestraRepository.findAll();
         }
+        
+        public void guardarMuestra(tMuestra muestra) {
+            muestraRepository.save(muestra);
+        }
+        
 }
 
 
