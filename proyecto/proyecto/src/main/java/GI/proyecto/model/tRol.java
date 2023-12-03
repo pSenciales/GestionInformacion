@@ -11,14 +11,14 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class tRol {
 	@Id
-	String rolName;
+	private String rolName;
 	@Nullable
-	String rolDes;
-	boolean admin;
+	private String rolDes;
+	private boolean admin;
 	@OneToMany (mappedBy = "nif")
-	List<tUsuario> usuario;
+	private List<tUsuario> usuario;
 	@OneToMany (mappedBy ="pantalla")
-	List<tPermiso> permiso;
+	private List<tPermiso> permiso;
 	
 	
 	public List<tUsuario> getUsuario() {

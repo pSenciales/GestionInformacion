@@ -20,58 +20,55 @@
     <!-- Use Thymeleaf iteration to populate table rows -->
     <tr th:each="muestra : ${muestrasList}">
         <td th:text="${muestra.getID()}"></td>
-        <td th:text="${muestra.getNif_Paciente()}"></td>
+        <td th:text="${muestra.getNIF_Paciente()}"></td>
         <td th:text="${muestra.getCultivo()}"></td>
         <td th:text="${muestra.Solucion.getId()}"></td>
+        <td>
+            <form th:action="@{/mostrarMuestra}" method="post" id="formId">
+                <input type="hidden" name="muestraId" th:value="${muestra.getID()}" />
+                <button type="submit" onclick="submitForm(this)">Mostrar</button>
+            </form>
+        </td>
+
+        <script th:inline="javascript">
+            function submitForm(button) {
+                var form = button.parentElement;
+                form.submit();
+            }
+        </script>
+
     </tr>
     </tbody>
 </table>
 
-<!-- Muestras form -->
-<!-- <form action="/submit-muestras" method="post">
-    <input type="text" name="id" placeholder="IDMuestra" th:value="${muestras.IDMuestra}" />
-    <input type="text" name="nif" placeholder="Nif_Paciente" th:value="${muestras.Nif_Paciente}" />
-    <input type="text" name="cultivo" placeholder="Cultivo" th:value="${muestras.Cultivo}" /> -->
-
-    <!-- Solución dropdown -->
-    <!--<select name="solucion">
-        <option value="Audi de melón Loeffler">Audi de melón Loeffler</option>
-        <option value="Colorear para Loeffler">Colorear para Loeffler</option>
-        <option value="Filtrar para Loeffler">Filtrar para Loeffler</option>
-    </select>
-
-    
-    <button type="submit">Actualizar</button>
-    <button type="button">Salir</button>
-    
-</form> -->
 
 <!-- CAMPOS DE TEXTO -->
-<form action="/guardar-muestra" method="post">
-
-    <!-- Campo para ID del Paciente -->
-    <label>ID	 <input type="text" /></label><br/>
+<form th:action="@{/guardar-muestra}" method="post" th:object="${muestra}">
 
     <!-- Campo para NIF del Paciente -->
-    <label>NIF	<input type="text" /></label><br/>
+    <label>NIF <input type="text" id="NIF_Paciente" th:field="*{NIF_Paciente}"/></label><br/>
 
     <!-- Campo para el Cultivo -->
-    <label>Cultivo	<input type="text" /></label><br/>
+    <label>Cultivo <input type="text" id="Cultivo" th:field="*{Cultivo}"/></label><br/>
 
     <!-- Campo para la Solución -->
     <label>Solucion:
-        <select name="Soluciones" th:size="${soluciones.size()}">
-            <option th:each="solucion : ${soluciones}" th:value="${solucion.getId()}" th:text="${solucion.getSolucion()}"></option>
+        <select style="width:20ch; height:10ch;" name="Solucion" id="Solucion" th:field="*{Solucion}" th:size="${soluciones.size()}">
+            <option th:each="solucion : ${soluciones}"
+                    th:value="${solucion.getId()}"
+                    th:text="${solucion.getSolucion()}"
+                    th:selected="*{Solucion}"></option>
         </select>
     </label><br/>
 
     <button type="submit">Insertar</button>
-    <button type="submit">Borrar</button>
-    <button type="submit">Actualizar</button>
-    <button type="submit">Salir</button>
+    <button type="submit">Borrar</button> <!--Se debería de hacer un subformulario-->
+    <button type="submit">Actualizar</button> <!--Se debería de hacer un subformulario-->
+    <button type="reset">Limpiar</button> <!--Se debería de hacer un subformulario y controller debería limpiar los campos-->
+
 
 </form>
-
+    <button>Salir</button>
 <!-- Add your JavaScript (if needed) for interactions -->
 </body>
 </html>

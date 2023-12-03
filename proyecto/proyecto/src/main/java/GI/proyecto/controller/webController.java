@@ -7,9 +7,7 @@ import GI.proyecto.service.tSolucionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import GI.proyecto.model.tMuestra;
 import GI.proyecto.service.tMuestraService;
@@ -25,6 +23,28 @@ public class webController {
 
 	@GetMapping("/muestra")
 	public String listarMuestras(Model model){
+		tMuestra muestra = new tMuestra();
+		model.addAttribute("muestra",muestra);
+
+		List<tMuestra> muestrasList = muestraService.getAll();
+		model.addAttribute("muestrasList", muestrasList);
+
+		List<tSolucion> soluciones = solucionService.getAll();
+		model.addAttribute("soluciones",soluciones);
+		return "viewMuestras";
+	}
+	
+	@PostMapping("/guardar-muestra")
+    public String guardarMuestra(tMuestra nuevaMuestra) {
+        muestraService.guardarMuestra(nuevaMuestra);
+        return "redirect:/muestra";
+    }
+
+	@RequestMapping("/mostrarMuestra")
+	public String doShowMostrar(Model model, @RequestParam("muestraId") Integer muestraId){
+		tMuestra muestra = muestraService.getMuestra(muestraId);
+		model.addAttribute("muestra",muestra);
+
 		List<tMuestra> muestrasList = muestraService.getAll();
 		model.addAttribute("muestrasList", muestrasList);
 
@@ -35,11 +55,4 @@ public class webController {
 		model.addAttribute("soluciones",soluciones);
 		return "viewMuestras";
 	}
-	
-	@PostMapping("/guardar-muestra")
-    public String guardarMuestra(@ModelAttribute tMuestra nuevaMuestra) {
-        muestraService.guardarMuestra(nuevaMuestra);
-        
-        return "redirect:/";
-    }
 }

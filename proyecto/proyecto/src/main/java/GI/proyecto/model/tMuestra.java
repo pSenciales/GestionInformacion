@@ -22,10 +22,10 @@ public class tMuestra {
 	public Integer getID() {
 		return IDMuestra;
 	}
-	public void setID(Integer iD) {
-		IDMuestra = iD;
+	public void setID(Integer ID) {
+		IDMuestra = ID;
 	}
-	public String getNif_Paciente() {
+	public String getNIF_Paciente() {
 		return NIF_Paciente;
 	}
 	public void setNIF_Paciente(String Nif_Paciente) {
