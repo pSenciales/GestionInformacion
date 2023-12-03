@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Add your CSS and other meta tags here -->
+</head>
+<body>
+<h1>MUESTRAS</h1>
+
+<!-- Display existing Muestras data in a table -->
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NIF</th>
+        <th>Cultivo</th>
+        <th>Solucion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Use Thymeleaf iteration to populate table rows -->
+    <tr th:each="muestra : ${muestrasList}">
+        <td th:text="${muestra.getID()}"></td>
+        <td th:text="${muestra.Nif_Paciente}"></td>
+        <td th:text="${muestra.Cultivo}"></td>
+        <td th:text="${muestra.Solucion.getId()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Muestras form -->
+<!-- <form action="/submit-muestras" method="post">
+    <input type="text" name="id" placeholder="IDMuestra" th:value="${muestras.IDMuestra}" />
+    <input type="text" name="nif" placeholder="Nif_Paciente" th:value="${muestras.Nif_Paciente}" />
+    <input type="text" name="cultivo" placeholder="Cultivo" th:value="${muestras.Cultivo}" /> -->
+
+    <!-- Solución dropdown -->
+    <!--<select name="solucion">
+        <option value="Audi de melón Loeffler">Audi de melón Loeffler</option>
+        <option value="Colorear para Loeffler">Colorear para Loeffler</option>
+        <option value="Filtrar para Loeffler">Filtrar para Loeffler</option>
+    </select>
+
+    
+    <button type="submit">Actualizar</button>
+    <button type="button">Salir</button>
+    
+</form> -->
+
+<!-- CAMPOS DE TEXTO -->
+<form action="/guardar-muestra" method="post" th:object="${nuevaMuestra}">
+   
+   
+    <!-- Campo para ID del Paciente -->
+    <label>ID	 <input type="text" th:field="*{ID}" /></label><br/>
+    
+    <!-- Campo para NIF del Paciente -->
+    <label>NIF	<input type="text" th:field="*{NIF_Paciente}" /></label><br/>
+    
+    <!-- Campo para el Cultivo -->
+    <label>Cultivo	<input type="text" th:field="*{Cultivo}" /></label><br/>
+    
+    <!-- Campo para la Solución -->
+    <label>Solucion: 
+        <select th:field="*{solucion.IDSolucion}">
+            <option th:each="solucion : ${soluciones}" th:value="${solucion.IDSolucion}" th:text="${solucion.Solucion}"></option>
+        </select>
+    </label><br/>
+    
+    <button type="submit">Insertar</button>
+    <button type="submit">Borrar</button>
+    <button type="submit">Actualizar</button>
+    <button type="submit">Salir</button>
+    
+</form>
+
+<!-- Add your JavaScript (if needed) for interactions -->
+</body>
+</html>
