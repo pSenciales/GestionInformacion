@@ -3,37 +3,33 @@ package GI.proyecto.model;
 import java.util.Objects;
 
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class tMuestra {
 	@Id
-	int ID;
+	@GeneratedValue
+	private Integer IDMuestra;
 	@Nullable
-	String NIF_PACIENTE;
+	private String NIF_Paciente;
 	@Nullable
-	String Cultivo;
+	private String Cultivo;
 	@ManyToOne
-	tSolucion Solucion;
+	private tSolucion Solucion;
 	
-	public tMuestra() {
-			
-	}
+	public tMuestra() {}
 
-	public int getID() {
-		return ID;
+	public Integer getID() {
+		return IDMuestra;
 	}
-	
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(Integer iD) {
+		IDMuestra = iD;
 	}
-	public String getNIF_PACIENTE() {
-		return NIF_PACIENTE;
+	public String getNif_Paciente() {
+		return NIF_Paciente;
 	}
-	public void setNIF_PACIENTE(String nIF_PACIENTE) {
-		NIF_PACIENTE = nIF_PACIENTE;
+	public void setNIF_Paciente(String Nif_Paciente) {
+		NIF_Paciente = Nif_Paciente;
 	}
 	public String getCultivo() {
 		return Cultivo;
@@ -41,10 +37,12 @@ public class tMuestra {
 	public void setCultivo(String cultivo) {
 		Cultivo = cultivo;
 	}
+	public tSolucion getSolucion() { return Solucion; }
+	public void setSolucion(tSolucion solucion) { Solucion = solucion; }
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(ID);
+		return Objects.hash(IDMuestra);
 	}
 
 	@Override
@@ -56,9 +54,7 @@ public class tMuestra {
 		if (getClass() != obj.getClass())
 			return false;
 		tMuestra other = (tMuestra) obj;
-		return ID == other.ID;
+		return IDMuestra == other.IDMuestra;
 	}
-	
-	
 
 }

@@ -4,13 +4,14 @@ import java.util.List;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class tRol {
 	@Id
-	Roles rolName;
+	String rolName;
 	@Nullable
 	String rolDes;
 	boolean admin;
@@ -29,14 +30,12 @@ public class tRol {
 	}
 
 	public tRol() {
-		
 	}
 	
-	public Roles getRolName() {
+	public String getRolName() {
 		return rolName;
 	}
-		
-	public void setRolName(Roles rolName) {
+	public void setRolName(String rolName) {
 		this.rolName = rolName;
 	}
 	public String getRolDes() {
@@ -51,8 +50,5 @@ public class tRol {
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
-	
-	
-	
-	
+
 }

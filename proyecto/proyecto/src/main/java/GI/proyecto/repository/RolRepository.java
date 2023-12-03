@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import GI.proyecto.model.tRol;
 
-public interface tRolRepository extends JpaRepository<tRol, String> {
+public interface RolRepository extends JpaRepository<tRol, String> {
 	
 	
 }

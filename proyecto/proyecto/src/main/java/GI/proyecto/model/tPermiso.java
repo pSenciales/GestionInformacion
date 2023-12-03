@@ -21,7 +21,7 @@ public class tPermiso {
     
     public tPermiso(tRol rolName) {
     	this.rolName = rolName;
-    	String rol = rolName.getRolName().name();
+    	String rol = rolName.getRolName();
     	this.acceso = true;
     	this.insertar = false;
 		this.modificar = false;
