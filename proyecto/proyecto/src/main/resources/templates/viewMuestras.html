@@ -20,8 +20,8 @@
     <!-- Use Thymeleaf iteration to populate table rows -->
     <tr th:each="muestra : ${muestrasList}">
         <td th:text="${muestra.getID()}"></td>
-        <td th:text="${muestra.Nif_Paciente}"></td>
-        <td th:text="${muestra.Cultivo}"></td>
+        <td th:text="${muestra.getNif_Paciente()}"></td>
+        <td th:text="${muestra.getCultivo()}"></td>
         <td th:text="${muestra.Solucion.getId()}"></td>
     </tr>
     </tbody>
@@ -47,30 +47,29 @@
 </form> -->
 
 <!-- CAMPOS DE TEXTO -->
-<form action="/guardar-muestra" method="post" th:object="${nuevaMuestra}">
-   
-   
+<form action="/guardar-muestra" method="post">
+
     <!-- Campo para ID del Paciente -->
-    <label>ID	 <input type="text" th:field="*{ID}" /></label><br/>
-    
+    <label>ID	 <input type="text" /></label><br/>
+
     <!-- Campo para NIF del Paciente -->
-    <label>NIF	<input type="text" th:field="*{NIF_Paciente}" /></label><br/>
-    
+    <label>NIF	<input type="text" /></label><br/>
+
     <!-- Campo para el Cultivo -->
-    <label>Cultivo	<input type="text" th:field="*{Cultivo}" /></label><br/>
-    
+    <label>Cultivo	<input type="text" /></label><br/>
+
     <!-- Campo para la Solución -->
-    <label>Solucion: 
-        <select th:field="*{solucion.IDSolucion}">
-            <option th:each="solucion : ${soluciones}" th:value="${solucion.IDSolucion}" th:text="${solucion.Solucion}"></option>
+    <label>Solucion:
+        <select name="Soluciones" th:size="${soluciones.size()}">
+            <option th:each="solucion : ${soluciones}" th:value="${solucion.getId()}" th:text="${solucion.getSolucion()}"></option>
         </select>
     </label><br/>
-    
+
     <button type="submit">Insertar</button>
     <button type="submit">Borrar</button>
     <button type="submit">Actualizar</button>
     <button type="submit">Salir</button>
-    
+
 </form>
 
 <!-- Add your JavaScript (if needed) for interactions -->

@@ -2,6 +2,8 @@ package GI.proyecto.controller;
 
 import java.util.List;
 
+import GI.proyecto.model.tSolucion;
+import GI.proyecto.service.tSolucionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +19,20 @@ public class webController {
 	@Autowired
 	tMuestraService muestraService;
 
-	@GetMapping("/nueva-muestra")
+	@Autowired
+	tSolucionService solucionService;
+
+
+	@GetMapping("/muestra")
 	public String listarMuestras(Model model){
 		List<tMuestra> muestrasList = muestraService.getAll();
 		model.addAttribute("muestrasList", muestrasList);
+
+		tMuestra nuevaMuestra = new tMuestra();
+		model.addAttribute("nuevaMuestra",nuevaMuestra);
+
+		List<tSolucion> soluciones = solucionService.getAll();
+		model.addAttribute("soluciones",soluciones);
 		return "viewMuestras";
 	}
 	
