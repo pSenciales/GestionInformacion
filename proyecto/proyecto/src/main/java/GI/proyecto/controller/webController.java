@@ -70,8 +70,14 @@ public class webController {
 	@PostMapping("/post-login")
 	public String postLogin(tUsuario usuario) {
 		List<tUsuario> user = usuarioService.findById(usuario);
-		if (user.size() == 1 && user.get(0).getPassword().equals(usuario.getPassword() )) {
-			return "redirect:/muestra"; 
+		if (user.size() == 1 && user.get(0).getPassword().equals(usuario.getPassword())) { // podemos usar el bCrypt
+																							// para se codifique la
+																							// contraseña en la bd pero
+																							// habría que hacer un
+																							// registro cosa que está
+																							// fuera del objetivo del
+																							// proyecto
+			return "redirect:/muestra";
 		} else {
 			return "error";
 		}
