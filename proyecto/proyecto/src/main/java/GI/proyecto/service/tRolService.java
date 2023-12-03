@@ -11,7 +11,7 @@ import GI.proyecto.repository.RolRepository;
 @Service
 public class tRolService {
 	@Autowired
-    RolRepository repository;
+    RolRepository repository ;
 	
 	public List<tRol> getAll(){
 		return repository.findAll();
