@@ -12,7 +12,7 @@ public class tUsuarioService {
 	@Autowired
 	UsuarioRepository repository;
 	
-	public List<tUsuario> findById(tUsuario usuario){
-		return repository.findByNif(usuario.getNif());
+	public List<tUsuario> findById(String id){
+		return repository.findByNif(id);
 	}
 }

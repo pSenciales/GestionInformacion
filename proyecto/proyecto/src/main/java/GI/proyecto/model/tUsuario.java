@@ -32,10 +32,13 @@ public class tUsuario {
 		this.password = password;
 	}
 
-	public tRol getRolName() {
+	public tRol getRol() {
 		return rolName;
 	}
-
+	
+	public String getRolName() {
+		return rolName.getRolName();
+	}
 	public void setRolName(tRol rolName) {
 		this.rolName = rolName;
 	}

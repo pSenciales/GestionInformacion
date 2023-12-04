@@ -6,6 +6,7 @@ import GI.proyecto.model.tSolucion;
 import GI.proyecto.model.tUsuario;
 import GI.proyecto.service.tSolucionService;
 import GI.proyecto.service.tUsuarioService;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,8 +28,10 @@ public class webController {
 	tUsuarioService usuarioService;
 
 	@GetMapping("/muestra")
-	public String listarMuestras(Model model) {
+	public String listarMuestras(Model model, HttpSession sesion) {
 		tMuestra muestra = new tMuestra();
+		tUsuario usuario = usuarioService.findById((String) sesion.getAttribute("nif")).get(0);
+		model.addAttribute("usuario", usuario);
 		model.addAttribute("muestra", muestra);
 
 		List<tMuestra> muestrasList = muestraService.getAll();
@@ -46,7 +49,10 @@ public class webController {
 	}
 
 	@RequestMapping("/mostrarMuestra")
-	public String doShowMostrar(Model model, @RequestParam("muestraId") Integer muestraId) {
+	public String doShowMostrar(Model model, @RequestParam("muestraId") Integer muestraId, HttpSession sesion) {
+		tUsuario usuario = usuarioService.findById((String) sesion.getAttribute("nif")).get(0);
+		model.addAttribute("usuario", usuario);
+		
 		tMuestra muestra = muestraService.getMuestra(muestraId);
 		model.addAttribute("muestra", muestra);
 
@@ -68,15 +74,17 @@ public class webController {
 	}
 
 	@PostMapping("/post-login")
-	public String postLogin(tUsuario usuario) {
-		List<tUsuario> user = usuarioService.findById(usuario);
+	public String postLogin(tUsuario usuario, HttpSession sesion) {
+		
+		List<tUsuario> user = usuarioService.findById(usuario.getNif());
 		if (user.size() == 1 && user.get(0).getPassword().equals(usuario.getPassword())) { // podemos usar el bCrypt
-																							// para se codifique la
+																							// para se encripte la
 																							// contraseña en la bd pero
 																							// habría que hacer un
 																							// registro cosa que está
 																							// fuera del objetivo del
 																							// proyecto
+			sesion.setAttribute("nif", user.get(0).getNif());
 			return "redirect:/muestra";
 		} else {
 			return "error";

@@ -1550,3 +1550,11 @@ INSERT INTO "PUBLIC"."T_ROL_COPY_3_0"("ROL_NAME", "ADMIN", "ROL_DES") OVERRIDING
 org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'pat' (T_USUARIO_COPY_3_1: ""ROL_NAME_ROL_NAME"" TINYINT)"
 Data conversion error converting "'pat' (T_USUARIO_COPY_3_1: ""ROL_NAME_ROL_NAME"" TINYINT)"; SQL statement:
 INSERT INTO "PUBLIC"."T_USUARIO_COPY_3_1"("NIF", "PASSWORD", "ROL_NAME_ROL_NAME") OVERRIDING SYSTEM VALUE SELECT "NIF", "PASSWORD", "ROL_NAME_ROL_NAME" FROM "PUBLIC"."T_USUARIO" [22018-224]
+2023-12-04 00:06:12.953882+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "select * from T_USUARIO [*]user where user.ID = ?"
+Syntax error in SQL statement "select * from T_USUARIO [*]user where user.ID = ?"; SQL statement:
+select * from T_USUARIO user where user.ID = ? [42000-224]
+2023-12-04 00:07:29.646032+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "TUSUARIO" no encontrada
+Table "TUSUARIO" not found; SQL statement:
+select * from tUsuario where NIF = ? [42102-224]
