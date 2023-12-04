@@ -30,7 +30,7 @@ public class webController {
 	@GetMapping("/muestra")
 	public String listarMuestras(Model model, HttpSession sesion) {
 		tMuestra muestra = new tMuestra();
-		tUsuario usuario = usuarioService.findById((String) sesion.getAttribute("nif")).get(0);
+		tUsuario usuario = usuarioService.findById((String) sesion.getAttribute("nif")).get(0); //sacamos de la sesion el nif pasada en el login
 		model.addAttribute("usuario", usuario);
 		model.addAttribute("muestra", muestra);
 
@@ -52,7 +52,7 @@ public class webController {
 	public String doShowMostrar(Model model, @RequestParam("muestraId") Integer muestraId, HttpSession sesion) {
 		tUsuario usuario = usuarioService.findById((String) sesion.getAttribute("nif")).get(0);
 		model.addAttribute("usuario", usuario);
-		
+
 		tMuestra muestra = muestraService.getMuestra(muestraId);
 		model.addAttribute("muestra", muestra);
 
@@ -75,7 +75,7 @@ public class webController {
 
 	@PostMapping("/post-login")
 	public String postLogin(tUsuario usuario, HttpSession sesion) {
-		
+
 		List<tUsuario> user = usuarioService.findById(usuario.getNif());
 		if (user.size() == 1 && user.get(0).getPassword().equals(usuario.getPassword())) { // podemos usar el bCrypt
 																							// para se encripte la
@@ -84,7 +84,9 @@ public class webController {
 																							// registro cosa que está
 																							// fuera del objetivo del
 																							// proyecto
-			sesion.setAttribute("nif", user.get(0).getNif());
+			
+			sesion.setAttribute("nif", user.get(0).getNif());// Al hacer login metemos por la sesión el
+																// nif para poder hacer uso del usuario en otras vistas
 			return "redirect:/muestra";
 		} else {
 			return "error";
