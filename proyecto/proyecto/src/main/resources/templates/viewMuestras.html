@@ -41,9 +41,9 @@
     </tbody>
 </table>
 
-
-<!-- CAMPOS DE TEXTO -->
 <form th:action="@{/guardar-muestra}" method="post" th:object="${muestra}">
+
+    
 
     <!-- Campo para NIF del Paciente -->
     <label>NIF <input type="text" id="NIF_Paciente" th:field="*{NIF_Paciente}"/></label><br/>
@@ -61,15 +61,23 @@
         </select>
     </label><br/>
 
-    <button th:if="${usuario.getRolName() eq 'admin'}" type="submit">Insertar</button>
-    <button type="submit" th:if="${usuario.getRolName() eq 'admin'}">Borrar</button> <!--Se debería de hacer un subformulario-->
+    <button type="submit" th:if="${usuario.getRolName() eq 'admin'}" >Insertar</button>
+        
     <button type="submit" th:if="${usuario.getRolName() ne 'invitado'}">Actualizar</button> <!--Se debería de hacer un subformulario-->
+    
 </form>
+
 <form action="/limpiar" method="POST">
     <button type="submit">Limpiar</button>
 </form>
+
+<form th:action="@{/borrar-muestra/{id}(id=${muestra.getID()})}" method="post">
+    <button type="submit" th:if="${usuario.getRolName() eq 'admin'}">Borrar</button>
+</form>
+
 <form action="/goLogin" method="get">
     <button type="submit">Salir</button>
 </form>
+
 </body>
 </html>

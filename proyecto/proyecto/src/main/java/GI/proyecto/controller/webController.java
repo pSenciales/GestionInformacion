@@ -78,13 +78,7 @@ public class webController {
 
 		List<tUsuario> user = usuarioService.findById(usuario.getNif());
 		if (user.size() == 1 && user.get(0).getPassword().equals(usuario.getPassword())) { // podemos usar el bCrypt
-																							// para se encripte la
-																							// contraseña en la bd pero
-																							// habría que hacer un
-																							// registro cosa que está
-																							// fuera del objetivo del
-																							// proyecto
-			
+	
 			sesion.setAttribute("nif", user.get(0).getNif());// Al hacer login metemos por la sesión el
 																// nif para poder hacer uso del usuario en otras vistas
 			return "redirect:/muestra";
@@ -109,4 +103,9 @@ public class webController {
 		return "redirect:/muestra";
 	}
 
+    @RequestMapping("/borrar-muestra/{id}")
+    public String cargarPaginaBorrar(@PathVariable Integer id) {
+    	muestraService.delete(id);
+        return "redirect:/muestra";
+    }
 }

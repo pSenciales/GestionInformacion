@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3aee933-4fab-455a-b4d9-6b447c9bdf74" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyecto/src/main/java/GI/proyecto/controller/webController.java" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto/src/main/java/GI/proyecto/controller/webController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyecto/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyecto/src/main/resources/templates/loginView.html" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto/src/main/resources/templates/loginView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyecto/src/main/resources/templates/viewMuestras.html" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto/src/main/resources/templates/viewMuestras.html" afterDir="false" />
-    </list>
+    <list default="true" id="c3aee933-4fab-455a-b4d9-6b447c9bdf74" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,15 +37,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/luros/AA.UNIVERSIDAD/Curso 23-24/1º cuatrimestre/Gestion/Trabajo/GestionInformacion",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Pau\Universidad\Asignaturas\Cuarto Soft\Primer cuatri\Gestion de la informacion\Proyecto\GestionInformacion\proyecto\proyecto\src\main\resources\view" />
@@ -85,7 +86,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701627114421</updated>
+      <workItem from="1701795412217" duration="341000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

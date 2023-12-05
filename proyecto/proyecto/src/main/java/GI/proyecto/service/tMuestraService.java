@@ -20,7 +20,13 @@ public class tMuestraService{
             muestraRepository.saveAndFlush(muestra);
         }
 
-        public tMuestra getMuestra(Integer muestraId){return muestraRepository.findById(muestraId).orElse(null);}
+        public tMuestra getMuestra(Integer muestraId){
+        	return muestraRepository.findById(muestraId).orElse(null);
+        }
+        
+        public void delete(Integer id) {
+            muestraRepository.deleteById(id);
+        }
 }
 
 
