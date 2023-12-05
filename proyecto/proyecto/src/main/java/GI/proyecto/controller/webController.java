@@ -92,4 +92,21 @@ public class webController {
 			return "error";
 		}
 	}
+
+	@GetMapping("/exit")
+	public String exit(){
+		return "redirect:/";
+	}
+
+	@GetMapping("/goLogin")
+	public String goLogin(HttpSession sesion){
+		sesion.invalidate();
+		return "loginView";
+	}
+
+	@PostMapping("/limpiar")
+	public String limpiar(){
+		return "redirect:/muestra";
+	}
+
 }

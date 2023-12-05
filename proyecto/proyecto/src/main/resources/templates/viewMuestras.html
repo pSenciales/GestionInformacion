@@ -64,11 +64,12 @@
     <button th:if="${usuario.getRolName() eq 'admin'}" type="submit">Insertar</button>
     <button type="submit" th:if="${usuario.getRolName() eq 'admin'}">Borrar</button> <!--Se debería de hacer un subformulario-->
     <button type="submit" th:if="${usuario.getRolName() ne 'invitado'}">Actualizar</button> <!--Se debería de hacer un subformulario-->
-    <button type="reset">Limpiar</button> <!--Se debería de hacer un subformulario y controller debería limpiar los campos-->
-
-
 </form>
-    <button>Salir</button>
-<!-- Add your JavaScript (if needed) for interactions -->
+<form action="/limpiar" method="POST">
+    <button type="submit">Limpiar</button>
+</form>
+<form action="/goLogin" method="get">
+    <button type="submit">Salir</button>
+</form>
 </body>
 </html>

@@ -7,7 +7,8 @@
     <list default="true" id="c3aee933-4fab-455a-b4d9-6b447c9bdf74" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proyecto/src/main/java/GI/proyecto/controller/webController.java" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto/src/main/java/GI/proyecto/controller/webController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyecto/src/main/java/GI/proyecto/service/tMuestraService.java" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto/src/main/java/GI/proyecto/service/tMuestraService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto/src/main/resources/templates/loginView.html" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto/src/main/resources/templates/loginView.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proyecto/src/main/resources/templates/viewMuestras.html" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto/src/main/resources/templates/viewMuestras.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,24 +34,24 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2Z2jXzVKbES0ItxkaRBv0zyVTNt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Pau\Universidad\Asignaturas\Cuarto Soft\Primer cuatri\Gestion de la informacion\Proyecto\GestionInformacion\proyecto\proyecto\src\main\resources\view" />
