@@ -111,30 +111,15 @@ public class webController {
     }
     
    
-    
-//    @GetMapping("/editar-muestra/{id}")
-//    public String editar(@PathVariable Integer id, Model model) {
-//        tMuestra muestraExistente = muestraService.getMuestra(id);
-//
-//        model.addAttribute("muestra", muestraExistente);
-//
-//        return "redirect:/muestra";
-//    }
-//
-//    @PostMapping("/editar-muestra/{id}")
-//    public String actualizar(@PathVariable Integer id, @ModelAttribute tMuestra muestraActualizada) {
-//        tMuestra muestraExistente = muestraService.getMuestra(id);
-//
-//        muestraExistente.setNIF_Paciente(muestraActualizada.getNIF_Paciente());
-//        muestraExistente.setCultivo(muestraActualizada.getCultivo());
-//        muestraExistente.setSolucion(muestraActualizada.getSolucion());
-//        muestraExistente.setID(muestraActualizada.getID());
-//          
-//
-//        muestraService.guardarMuestra(muestraExistente);
-//
-//        return "redirect:/muestra";
-//    }
+
+
+    @PostMapping("/editar-muestra/{id}")
+    public String actualizar(@PathVariable Integer id,tMuestra muestraActualizada) {
+
+        muestraService.updateMuestra(id, muestraActualizada.getNIF_Paciente(), muestraActualizada.getCultivo(), muestraActualizada.getSolucion());
+
+        return "redirect:/muestra";
+    }
     
     
     

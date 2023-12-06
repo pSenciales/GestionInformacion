@@ -1,6 +1,7 @@
 package GI.proyecto.service;
 
 import GI.proyecto.model.tMuestra;
+import GI.proyecto.model.tSolucion;
 import GI.proyecto.repository.MuestraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,11 @@ public class tMuestraService{
             muestraRepository.deleteById(id);
             
         }
+        
+        public void updateMuestra(Integer id, String nif, String cultivo, tSolucion solucion) {
+        	muestraRepository.updateMuestra(id, nif, cultivo, solucion);
+        }
+        
 }
 
 

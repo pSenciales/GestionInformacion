@@ -40,31 +40,42 @@
     </tr>
     </tbody>
 </table>
-
-<form th:action="@{/guardar-muestra}" method="post" th:object="${muestra}">
-
-    
-
+<form th:action="@{/editar-muestra/{id}(id=${muestra.getID()})}" method="post" th:object="${muestra}" id="muestraForm">
     <!-- Campo para NIF del Paciente -->
-    <label>NIF <input type="text" id="NIF_Paciente" th:field="*{NIF_Paciente}"/></label><br/>
+    <label>NIF <input type="text" id="NIF_Paciente" th:field="*{NIF_Paciente}" /></label><br/>
 
     <!-- Campo para el Cultivo -->
-    <label>Cultivo <input type="text" id="Cultivo" th:field="*{Cultivo}"/></label><br/>
+    <label>Cultivo <input type="text" id="Cultivo" th:field="*{Cultivo}" /></label><br/>
 
     <!-- Campo para la Solución -->
     <label>Solucion:
         <select style="width:20ch; height:10ch;" name="Solucion" id="Solucion" th:field="*{Solucion}" th:size="${soluciones.size()}">
-            <option th:each="solucion : ${soluciones}"
-                    th:value="${solucion.getId()}"
-                    th:text="${solucion.getSolucion()}"
-                    th:selected="*{Solucion}"></option>
+            <option th:each="solucion : ${soluciones}" th:value="${solucion.getId()}" th:text="${solucion.getSolucion()}" th:selected="*{Solucion}"></option>
         </select>
     </label><br/>
 
-    <button type="submit" th:if="${usuario.getRolName() eq 'admin'}" >Insertar</button>
-        
-    
+    <button type="submit" th:if="${usuario.getRolName() ne 'invitado'}">Actualizar</button> 
+
+    <button type="button" onclick="submitForm('insertar')" th:if="${usuario.getRolName() eq 'admin'}">Insertar</button>
 </form>
+
+<script>
+    function submitForm(action) {
+        var form = document.getElementById('muestraForm');
+        
+        // Actualizar la acción del formulario según el botón presionado
+        if (action === 'insertar') {
+            form.action = "/guardar-muestra";
+        }
+
+        // Enviar el formulario
+        form.submit();
+    }
+</script>
+
+
+
+    
 
 <form action="/limpiar" method="POST">
     <button type="submit">Limpiar</button>
@@ -74,9 +85,7 @@
     <button type="submit" th:if="${usuario.getRolName() eq 'admin'}">Borrar</button>
 </form>
 
-<form th:action="@{/editar-muestra/{id}(id=${muestra.getID()})}" method="post">
-     <button type="submit" th:if="${usuario.getRolName() ne 'invitado'}">Actualizar</button> 
-</form>
+
 
 <form action="/goLogin" method="get">
     <button type="submit">Salir</button>
