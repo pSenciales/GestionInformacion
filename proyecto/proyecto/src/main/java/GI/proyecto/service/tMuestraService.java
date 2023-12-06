@@ -26,7 +26,10 @@ public class tMuestraService{
         
         public void delete(Integer id) {
             muestraRepository.deleteById(id);
+            
         }
 }
+
+
 
 

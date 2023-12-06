@@ -63,7 +63,6 @@
 
     <button type="submit" th:if="${usuario.getRolName() eq 'admin'}" >Insertar</button>
         
-    <button type="submit" th:if="${usuario.getRolName() ne 'invitado'}">Actualizar</button> <!--Se debería de hacer un subformulario-->
     
 </form>
 
@@ -73,6 +72,10 @@
 
 <form th:action="@{/borrar-muestra/{id}(id=${muestra.getID()})}" method="post">
     <button type="submit" th:if="${usuario.getRolName() eq 'admin'}">Borrar</button>
+</form>
+
+<form th:action="@{/editar-muestra/{id}(id=${muestra.getID()})}" method="post">
+     <button type="submit" th:if="${usuario.getRolName() ne 'invitado'}">Actualizar</button> 
 </form>
 
 <form action="/goLogin" method="get">
