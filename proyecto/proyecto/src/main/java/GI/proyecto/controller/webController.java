@@ -30,7 +30,9 @@ public class webController {
 	@GetMapping("/muestra")
 	public String listarMuestras(Model model, HttpSession sesion) {
 		tMuestra muestra = new tMuestra();
-		tUsuario usuario = usuarioService.findById((String) sesion.getAttribute("nif")).get(0); //sacamos de la sesion el nif pasada en el login
+		tUsuario usuario = usuarioService.findById((String) sesion.getAttribute("nif")).get(0); // sacamos de la sesion
+																								// el nif pasada en el
+																								// login
 		model.addAttribute("usuario", usuario);
 		model.addAttribute("muestra", muestra);
 
@@ -78,7 +80,7 @@ public class webController {
 
 		List<tUsuario> user = usuarioService.findById(usuario.getNif());
 		if (user.size() == 1 && user.get(0).getPassword().equals(usuario.getPassword())) { // podemos usar el bCrypt
-	
+
 			sesion.setAttribute("nif", user.get(0).getNif());// Al hacer login metemos por la sesión el
 																// nif para poder hacer uso del usuario en otras vistas
 			return "redirect:/muestra";
@@ -88,42 +90,35 @@ public class webController {
 	}
 
 	@GetMapping("/exit")
-	public String exit(){
+	public String exit() {
 		return "redirect:/";
 	}
 
 	@GetMapping("/goLogin")
-	public String goLogin(HttpSession sesion){
+	public String goLogin(HttpSession sesion) {
 		sesion.invalidate();
 		return "loginView";
 	}
 
 	@PostMapping("/limpiar")
-	public String limpiar(){
+	public String limpiar() {
 		return "redirect:/muestra";
 	}
 
-    @RequestMapping("/borrar-muestra/{id}")
-    public String cargarPaginaBorrar(@PathVariable Integer id) {
-    	muestraService.delete(id);
-        return "redirect:/muestra";
-        
-    }
-    
-   
+	@RequestMapping("/borrar-muestra/{id}")
+	public String cargarPaginaBorrar(@PathVariable Integer id) {
+		muestraService.delete(id);
+		return "redirect:/muestra";
 
+	}
 
-    @PostMapping("/editar-muestra/{id}")
-    public String actualizar(@PathVariable Integer id,tMuestra muestraActualizada) {
+	@PostMapping("/editar-muestra/{id}")
+	public String actualizar(@PathVariable Integer id, tMuestra muestraActualizada) {
 
-        muestraService.updateMuestra(id, muestraActualizada.getNIF_Paciente(), muestraActualizada.getCultivo(), muestraActualizada.getSolucion());
+		muestraService.updateMuestra(id, muestraActualizada.getNIF_Paciente(), muestraActualizada.getCultivo(),
+				muestraActualizada.getSolucion());
 
-        return "redirect:/muestra";
-    }
-    
-    
-    
-  
-    
-    
+		return "redirect:/muestra";
+	}
+
 }
