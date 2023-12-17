@@ -126,9 +126,9 @@
         </select>
     </label><br/>
 
-    <button type="submit" th:if="${usuario.getRolName() ne 'invitado'}">Actualizar</button> 
+    <button type="submit" th:if="${permiso.getModificar() and muestra.getID() != null} ">Actualizar</button> 
 
-    <button type="button" onclick="submitForm('insertar')" th:if="${usuario.getRolName() eq 'admin'}">Insertar</button>
+    <button type="button" onclick="submitForm('insertar')" th:if="${permiso.getInsertar() and muestra.getID() != null} ">Insertar</button>
  </form>
 
  <form action="/limpiar" method="POST">
@@ -136,7 +136,7 @@
  </form>
 
  <form th:action="@{/borrar-muestra/{id}(id=${muestra.getID()})}" method="post">
-    <button type="submit" th:if="${usuario.getRolName() eq 'admin'}">Borrar</button>
+    <button type="submit" th:if="${permiso.getBorrar() and muestra.getID() != null}">Borrar</button>
  </form>
 
 
@@ -166,6 +166,8 @@
         // Enviar el formulario
         form.submit();
     }
+
+    function submitBorrar(action){}
 </script>
 
 
