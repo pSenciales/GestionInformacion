@@ -81,7 +81,7 @@ public class webController {
 		return "viewMuestras";
 	}
 
-	@RequestMapping("/login")
+	@RequestMapping(value = {"/login","","/"})
 	public String login(Model model) {
 		model.addAttribute("usuario", new tUsuario());
 		return "loginView";
@@ -125,15 +125,9 @@ public class webController {
 	}
 
 	@RequestMapping("/borrar-muestra/{id}")
-	public String cargarPaginaBorrar(@PathVariable Optional<Integer> optionalId) {
-		if(optionalId.isPresent()) {
-			Integer id = optionalId.get();
+	public String cargarPaginaBorrar(@PathVariable Integer id) {
 			muestraService.delete(id);
 			return "redirect:/muestra";
-
-		}
-		return "/";
-
 	}
 
 	@PostMapping("/editar-muestra/{id}")
